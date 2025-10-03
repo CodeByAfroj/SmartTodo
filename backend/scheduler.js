@@ -79,7 +79,7 @@ export const scheduleReminder = (todo) => {
 
  //emaill
     await sendEmail(todo.email,` "Todo Reminder"`, htmlContent);
-    console.log(`🔔 Reminder sent for "${todo.data}"`);
+    console.log(`🔔 Reminder sent for "${todo.data} to ${todo.email}"`);
   } catch (err) {
     console.error("❌ Failed to send reminder:", err);
   }
