@@ -5,18 +5,21 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import "./scheduler.js";
-import { loadAllReminders } from "./scheduler.js";
+
 import './nodemailer.js'
 
 const app = express();
 dotenv.config();
+
+
+
 
 const PORT=process.env.PORT||5000;
 const MONGO_URL=process.env.MONGO_URL;
 mongoose.connect(MONGO_URL)
 .then(()=>{
     console.log("Database connected")
-    loadAllReminders();
+
     app.listen(PORT,()=>{
         console.log(`server running at port ${PORT}`)
     })
